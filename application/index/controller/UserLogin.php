@@ -8,10 +8,11 @@ class UserLogin extends Controller {
 		return $this->fetch('login');
 	}
 	public function toRegister(Request $request) {
-
+		$data = $request->post();
+		print_r($data);
 	}
 	public function doLogin(Request $request) {
-		
+		$data = $request->post();
 	}
 }
 ?>
