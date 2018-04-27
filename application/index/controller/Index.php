@@ -2,6 +2,7 @@
 namespace app\index\controller;
 use think\Controller;
 use app\index\controller\Base;
+use think\Request;
 class Index extends Controller
 {
     public function index() {
@@ -15,5 +16,19 @@ class Index extends Controller
     }
     public function getUserInfo() {
     	return $this->fetch('userinfo');
+    }
+    public function qiangZhuang() {
+
+    }
+    public function xiaZhu(Request $request) {
+        $data = $request->post();
+        return json_encode($data);
+    }
+    // public function baoZiXiaZhu(Request $request) {
+    //     $data = $request->post();
+    //     return json_encode($data);
+    // }
+    public function getQiHao() {
+        
     }
 }
