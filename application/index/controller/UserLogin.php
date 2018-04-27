@@ -14,5 +14,8 @@ class UserLogin extends Controller {
 	public function doLogin(Request $request) {
 		$data = $request->post();
 	}
+	public function logOut() {
+		
+	}
 }
 ?>
