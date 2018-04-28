@@ -158,6 +158,7 @@ $(function(){
 	// 	// });
 	// });
 	//计时器逻辑实现
+	getQiHao();
 	function getQiHao() {//获取当前期号和开奖时间
 		$.ajax({
 		          	url:"/getqihao",
