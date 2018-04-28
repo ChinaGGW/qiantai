@@ -133,7 +133,12 @@
 				type:'post',
 				data:data,
 				success : function(result) {
-
+					var res = $.parseJSON(result);
+					if(res.code) {
+						window.location.href = "/index";
+					}else {
+						layer.msg(res.msg);
+					}
 				}
 			});
 		});

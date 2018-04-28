@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1524884144;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524882012;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1524884144;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +20,9 @@
 		<div name="navigator" class="navigator">
 		<div name='left-nav' class="left-nav">
 		<div name='logo' class="logo"><a href="<?php echo url('/userinfo'); ?>"><img src="/static/images/timg.jpg" alt=""></a></div>
-		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>">阿狸是小松鼠</a></div>
-		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：123456.00</a></div>
+		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>"><?php echo $userinfo->nickName; ?></a></div>
+		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：<?php echo $userinfo->coin; ?></a></div>
+		<div><a href="<?php echo url('/logout'); ?>">退出</a></div>
 		</div>
 		<div>
 		<button class="btn btn-success btn-primary btn-lg" id="gameTwo" onclick="javascript:window.location='<?php echo url('/two'); ?>'">两骰</button>&nbsp;/&nbsp;<button class="btn btn-primary btn-success btn-lg" id="gameThree" onclick="javascript:window.location='<?php echo url('/'); ?>'">三骰</button>

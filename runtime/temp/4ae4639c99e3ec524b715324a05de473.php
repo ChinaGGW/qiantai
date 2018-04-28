@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"F:\www\qiantai\public/../application/index\view\index\twoMethod.html";i:1524815311;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524882012;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"F:\www\qiantai\public/../application/index\view\index\twoMethod.html";i:1524888202;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +20,9 @@
 		<div name="navigator" class="navigator">
 		<div name='left-nav' class="left-nav">
 		<div name='logo' class="logo"><a href="<?php echo url('/userinfo'); ?>"><img src="/static/images/timg.jpg" alt=""></a></div>
-		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>">阿狸是小松鼠</a></div>
-		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：123456.00</a></div>
+		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>"><?php echo $userinfo->nickName; ?></a></div>
+		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：<?php echo $userinfo->coin; ?></a></div>
+		<div><a href="<?php echo url('/logout'); ?>">退出</a></div>
 		</div>
 		<div>
 		<button class="btn btn-success btn-primary btn-lg" id="gameTwo" onclick="javascript:window.location='<?php echo url('/two'); ?>'">两骰</button>&nbsp;/&nbsp;<button class="btn btn-primary btn-success btn-lg" id="gameThree" onclick="javascript:window.location='<?php echo url('/'); ?>'">三骰</button>
@@ -38,8 +39,17 @@
 		<div name='daojishi' class="daojishi">
 			<input type="hidden" id="wanfa" value='2'>
 			<div name='jishiqi' class="jishiqi">
-				<div><p>第2018-06-12期预售中</p></div>
-				<div>08&nbsp;:&nbsp;30</div>
+				<div><p>2018-06-12-034期</p></div>
+							  <ul class="countdown">
+        <li class="seperator"></li>
+        <li> <span class="minutes">00</span>
+            <p class="minutes_ref">分</p>
+        </li>
+        <li class="seperator">:</li>
+        <li> <span class="seconds">00</span>
+            <p class="seconds_ref">秒</p>
+        </li>
+    </ul>
 			</div>
 			<div name='zhuangjia' class="zhuangjia">
 				<div><img src="/static/images/4.png" alt=""><div><p>我是小老虎</p><p>15万</p></div></div>

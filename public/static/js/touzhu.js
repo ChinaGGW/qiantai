@@ -97,14 +97,14 @@ $(function(){
             			success:function(data){
             				setTimeout(function(){
                				layer.closeAll('loading');
-							layer.msg(data.msg);
+							layer.msg('功能未开发！');
             				},600);
                			
             			},
             			error:function(data){
             				setTimeout(function(){
             					layer.closeAll('loading');
-                				layer.msg(data.msg);
+                				layer.msg('功能未开发！');
             				},600);	
             		}
         		});
@@ -172,7 +172,7 @@ $(function(){
         			});
 	}
 	$('.countdown').downCount({
-		date: '4/28/2018 11:02:00',
+		date: '4/28/2019 11:02:00',
 		offset:+8
 	},function() {
 		alert('几时结束');

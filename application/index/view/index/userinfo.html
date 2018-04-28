@@ -5,14 +5,14 @@
 			<div name='leftiframe' class="leftiframe">
 				<div>
 					<div><img src="__STATIC__/images/timg.jpg" alt=""></div>
-					<div>我不是打老虎</div>
+					<div>{$userinfo->nickName}</div>
 				</div>
 				<div>
-					<div><span>账号：</span><span>ceshi123</span></div>
-					<div><span>QQ：</span><span>10000</span></div>
-					<div><span>余额：</span><span>123456.9</span></div>
-					<div><span>未结余额：</span><span>1234.99</span></div>
-					<div><span>最近登录：</span><span>2018-12-04</span></div>
+					<div><span>账号：</span><span>{$userinfo->username}</span></div>
+					<div><span>QQ：</span><span>{$userinfo->qq}</span></div>
+					<div><span>余额：</span><span>{$userinfo->coin}</span></div>
+					<div><span>未结余额：</span><span>{$userinfo->fcoin}</span></div>
+					<div><span>最近登录：</span><span>{:date('Y-m-d H:i:s',$userinfo->loginTime)}</span></div>
 					<div><span>我的上级代理：</span><span>小松鼠是阿狸</span></div>
 					<div><button>查看我的下级</button><button>充值</button><button>提现</button><button>退出</button></div>
 				</div>

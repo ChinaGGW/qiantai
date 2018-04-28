@@ -19,8 +19,9 @@
 		<div name="navigator" class="navigator">
 		<div name='left-nav' class="left-nav">
 		<div name='logo' class="logo"><a href="{:url('/userinfo')}"><img src="__STATIC__/images/timg.jpg" alt=""></a></div>
-		<div name='username' class="username"><a href="{:url('/userinfo')}">阿狸是小松鼠</a></div>
-		<div name='money' class="money"><a href="{:url('/userinfo')}">余额：123456.00</a></div>
+		<div name='username' class="username"><a href="{:url('/userinfo')}">{$userinfo->nickName}</a></div>
+		<div name='money' class="money"><a href="{:url('/userinfo')}">余额：{$userinfo->coin}</a></div>
+		<div><a href="{:url('/logout')}">退出</a></div>
 		</div>
 		<div>
 		<button class="btn btn-success btn-primary btn-lg" id="gameTwo" onclick="javascript:window.location='{:url('/two')}'">两骰</button>&nbsp;/&nbsp;<button class="btn btn-primary btn-success btn-lg" id="gameThree" onclick="javascript:window.location='{:url('/')}'">三骰</button>

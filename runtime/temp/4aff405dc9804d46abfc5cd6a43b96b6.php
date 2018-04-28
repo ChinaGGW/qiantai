@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"F:\www\qiantai\public/../application/index\view\index\userinfo.html";i:1524793949;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524642287;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"F:\www\qiantai\public/../application/index\view\index\userinfo.html";i:1524896584;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +11,7 @@
 	<script src="/static/js/function.js"></script>
 	<script src='/static/js/touzhu.js'></script>
 	<script src="/static/js/layer.js"></script>
+	<script src="/static/js/jquery.downCount.js"></script>
 </head>
 <body>
 <!-- 页面容器 -->
@@ -19,8 +20,9 @@
 		<div name="navigator" class="navigator">
 		<div name='left-nav' class="left-nav">
 		<div name='logo' class="logo"><a href="<?php echo url('/userinfo'); ?>"><img src="/static/images/timg.jpg" alt=""></a></div>
-		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>">阿狸是小松鼠</a></div>
-		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：123456.00</a></div>
+		<div name='username' class="username"><a href="<?php echo url('/userinfo'); ?>"><?php echo $userinfo->nickName; ?></a></div>
+		<div name='money' class="money"><a href="<?php echo url('/userinfo'); ?>">余额：<?php echo $userinfo->coin; ?></a></div>
+		<div><a href="<?php echo url('/logout'); ?>">退出</a></div>
 		</div>
 		<div>
 		<button class="btn btn-success btn-primary btn-lg" id="gameTwo" onclick="javascript:window.location='<?php echo url('/two'); ?>'">两骰</button>&nbsp;/&nbsp;<button class="btn btn-primary btn-success btn-lg" id="gameThree" onclick="javascript:window.location='<?php echo url('/'); ?>'">三骰</button>
@@ -39,14 +41,14 @@
 			<div name='leftiframe' class="leftiframe">
 				<div>
 					<div><img src="/static/images/timg.jpg" alt=""></div>
-					<div>我不是打老虎</div>
+					<div><?php echo $userinfo->nickName; ?></div>
 				</div>
 				<div>
-					<div><span>账号：</span><span>ceshi123</span></div>
-					<div><span>QQ：</span><span>10000</span></div>
-					<div><span>余额：</span><span>123456.9</span></div>
-					<div><span>未结余额：</span><span>1234.99</span></div>
-					<div><span>最近登录：</span><span>2018-12-04</span></div>
+					<div><span>账号：</span><span><?php echo $userinfo->username; ?></span></div>
+					<div><span>QQ：</span><span><?php echo $userinfo->qq; ?></span></div>
+					<div><span>余额：</span><span><?php echo $userinfo->coin; ?></span></div>
+					<div><span>未结余额：</span><span><?php echo $userinfo->fcoin; ?></span></div>
+					<div><span>最近登录：</span><span><?php echo date('Y-m-d H:i:s',$userinfo->loginTime); ?></span></div>
 					<div><span>我的上级代理：</span><span>小松鼠是阿狸</span></div>
 					<div><button>查看我的下级</button><button>充值</button><button>提现</button><button>退出</button></div>
 				</div>

@@ -3,19 +3,21 @@ namespace app\index\controller;
 use think\Controller;
 use app\index\controller\Base;
 use think\Request;
-class Index extends Controller
+use think\Session;
+
+class Index extends Base
 {
     public function index() {
-        return $this->fetch();
+        return $this->fetch('index',['userinfo'=>$this->userinfo]);
     }
     public function twoMethod() {
-    	return $this->fetch();
+    	return $this->fetch('twoMethod',['userinfo'=>$this->userinfo]);
     }
     public function getGameInfo() {
-    	return $this->fetch('gameinfo');
+    	return $this->fetch('gameinfo',['userinfo'=>$this->userinfo]);
     }
     public function getUserInfo() {
-    	return $this->fetch('userinfo');
+    	return $this->fetch('userinfo',['userinfo'=>$this->userinfo]);
     }
     public function qiangZhuang() {
 

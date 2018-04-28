@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"F:\www\qiantai\thinkphp\tpl\dispatch_jump.tpl";i:1524646064;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"F:\www\qiantai\thinkphp\tpl\dispatch_jump.tpl";i:1524646087;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,7 +8,7 @@
     <style type="text/css">
         *{ padding: 0; margin: 0; }
         body{ 
-            background-image:url('/static/images/logbg.png'); 
+            
             font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif; 
             color: #333; 
             font-size: 16px; 

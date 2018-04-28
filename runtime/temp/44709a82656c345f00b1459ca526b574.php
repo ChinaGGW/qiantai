@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"F:\www\qiantai\public/../application/index\view\user_login\login.html";i:1524720954;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"F:\www\qiantai\public/../application/index\view\user_login\login.html";i:1524888155;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -134,7 +134,12 @@
 				type:'post',
 				data:data,
 				success : function(result) {
-
+					var res = $.parseJSON(result);
+					if(res.code) {
+						window.location.href = "/index";
+					}else {
+						layer.msg(res.msg);
+					}
 				}
 			});
 		});
