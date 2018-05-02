@@ -14,6 +14,12 @@ $(function(){
 		//去除在线人数框滚动效果
 		$(this).removeClass('scroll');
 });
+	$('.kaijiang').on('mouseover',function(){
+		$(this).addClass('scroll');
+	});
+	$('.kaijiang').on('mouseout',function(){
+		$(this).removeClass('scroll');
+	});
 	$('.choumaimg').on('click',function(){
 		// 给筹码框添加选中状态
 		if(choumaCurrent($(this))){

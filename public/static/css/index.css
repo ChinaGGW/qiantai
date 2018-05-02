@@ -48,7 +48,7 @@ body {
     align-content: stretch;
 }
 .content > div {
-    height:620px;
+    height:580px;
     /*border:1px solid red;*/
 }
 .daojishi {
@@ -152,7 +152,7 @@ body {
     margin-left: 20px;
     margin-top: 10px;
     font-weight: bold;
-    width: 100px;
+    width: 150px;
     color: #ffc000;
 }
 .zhuangjia > div > div > p:last-of-type {
@@ -321,9 +321,10 @@ body {
     margin-top: 20px;
 }
 .kaijiang {
-    height:565px;
-    margin-top: 10px;
+    height:500px;
+    padding-top: 10px;
     display: flex-wrap;
+    overflow: hidden;
 }
 .kaijiang > div {
     width: 100%;
@@ -344,9 +345,9 @@ body {
     text-align: center;
     color: #f20000;
     font-size: 8px;
-    height: 8px;
-    margin-bottom:8px;
-    margin-top: 13px;
+    height: 7px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 .jiang-logo {
     margin-left: 15px;
@@ -825,4 +826,11 @@ ul.countdown a {
 }
 ul.countdown a:hover {
     text-decoration: underline;
+}
+.xiazhuwanfa {
+    width: 100%;
+    height: 120px;
+    margin-top: 20px;
+    border:1px solid red;
+    
 }

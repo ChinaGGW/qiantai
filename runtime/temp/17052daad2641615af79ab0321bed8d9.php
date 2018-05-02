@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1524884144;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1525247599;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +124,7 @@
 		<!-- 历史结算栏开始 -->
 			<div name='lishikj' class="lishikj">
 				<div name='biaoti' class="biaoti"><img src="/static/images/lishijiesuan.png" alt=""></div>
-				<div name='kaijiang' class="kaijiang">
+				<div name='kaijiang' class="kaijiang scroll_content">
 					<div name='jiang1' class="jiang">
 						<div name='qihao' class="qihao" id="qihao"><p>&nbsp;&nbsp;&nbsp;&nbsp;20180622期开奖</p></div>
 						<div class="jiang-logo"><img src="/static/images/4.png" alt=""></div>
@@ -203,6 +203,12 @@
 						<div class="jiang-logo"><img src="/static/images/4.png" alt=""></div>
 						<div class="jiang-logo"><img src="/static/images/4.png" alt=""></div>
 					</div>
+					<div name='jiang3' class="jiang">
+					<div name='qihao' class="qihao" id="qihao"><p>&nbsp;&nbsp;&nbsp;&nbsp;20180622期开奖</p></div>
+						<div class="jiang-logo"><img src="/static/images/6.png" alt=""></div>
+						<div class="jiang-logo"><img src="/static/images/4.png" alt=""></div>
+						<div class="jiang-logo"><img src="/static/images/4.png" alt=""></div>
+					</div>
 				</div>
 			</div>
 		<!-- 历史结算栏结束 -->
@@ -211,6 +217,7 @@
 	
 	</div>
 <!-- 页面容器结束 -->
+<div class="xiazhuwanfa" id="xiazhuwanfa"></div>
 <!-- 公共页脚开始 -->
 		<div name='footer' class="footer">
 			<p>鱼虾蟹娱乐城</p>
