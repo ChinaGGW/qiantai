@@ -5,13 +5,27 @@ use app\index\model\UserModel;
 use think\Request;
 use think\Session;
 class UserLogin extends Controller {
+	/**
+	 * [viewLogin 展示登陆界面]
+	 * @return [type] [description]
+	 */
 	public function viewLogin() {
 		return $this->fetch('login');
 	}
+	/**
+	 * [toRegister 注册逻辑]
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
 	public function toRegister(Request $request) {
 		$data = $request->post();
 		print_r($data);
 	}
+	/**
+	 * [doLogin 登陆逻辑]
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
 	public function doLogin(Request $request) {
 		$data = $request->post();
 		$um = new UserModel();
@@ -38,6 +52,10 @@ class UserLogin extends Controller {
 			return json_encode($msg);
 		}
 	}
+	/**
+	 * [logOut 用户退出]
+	 * @return [type] [description]
+	 */
 	public function logOut() {
 		Session::flush();
 		return $this->error('退出成功！',url('/tologin'),30);

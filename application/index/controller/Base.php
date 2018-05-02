@@ -5,6 +5,10 @@ use think\Session;
 use app\index\model\UserModel;
 class Base extends Controller {
 	protected $userinfo;
+	/**
+	 * [_initialize 中间件]
+	 * @return [type] [description]
+	 */
 	public function _initialize() {
 		$um = new UserModel();
         $this->userinfo = $um->where('id',session('userid','','user_'))->find();
