@@ -65,7 +65,7 @@ class Index extends Base
      * [getQiHao 获取期号]
      * 
      * @param  Request $request [description]
-     * @return [JSON]           [期号]
+     * @return [JSON]           [期号,开奖时间]
      */
     public function getQiHao(Request $request) {
         //如果不是ajax请求
@@ -76,33 +76,18 @@ class Index extends Base
         $y = date('Y');
         $yue = date('m');
         $d = date('d');
-        $h = date('H');
-        $m = substr(date('i'),0,1) == 5 ? substr(date('i'),0,1) :substr(date('i'),0,1)+1;
-        $s = substr($m,0,1); 
-        if($s) {
-            if($m == 6) {
-                $h = $h+1;
-                $str = $h.':'.'%';
-                $res = $dm->where('actionTime','like',$str)->limit(0,1)->find();
-                $qihao = $y.'-'.$yue.'-'.$d.'-'.$res->actionNo;
-                $kjsj = $res->actionTime;
-                $data = ['qihao'=>$qihao,'kjsj'=>$kjsj];
-                return json_encode($data);
-            }
-            $str = $h.':'.$m.'%';
-            $res = $dm->where('actionTime','like',$str)->find();
-            $qihao = $y.'-'.$yue.'-'.$d.'-'.$res->actionNo;
-            $kjsj = $res->actionTime;
-            $data = ['qihao'=>$qihao,'kjsj'=>$kjsj];
-           return json_encode($data);
-        } else {
-            $str = $h.':'.'%';
-            $res = $dm->where('actionTime','like',$str)->limit(0,1)->find();
-            $qihao = $y.'-'.$yue.'-'.$d.'-'.$res->actionNo;
-            $kjsj = $res->actionTime;
-            $data = ['qihao'=>$qihao,'kjsj'=>$kjsj];
-           return json_encode($data);
-        }
-        echo $h.'时'.$m.'分'.'分钟第一位'.$s;
+        $h = date('H:i:s');
+        $res = $dm->where('actionTime','>',$h)->limit(0,1)->find();
+        $data = ['qihao'=>$res->actionNo,'kjsj'=>$res->actionTime];
+        return json_encode($data);
+    
+    }
+    /**
+     * [getMethod 获取玩法信息]
+     * @param  Request $request [参数：当前玩法]
+     * @return [JSON]           [description]
+     */
+    public function getMethod(Request $request) {
+
     }
 }

@@ -834,3 +834,9 @@ ul.countdown a:hover {
     border:1px solid red;
     
 }
+.xiazhuwanfa > div {
+    border:2px solid blue;
+    width:48%;
+    height: 100%;
+    margin: 0 auto;
+}

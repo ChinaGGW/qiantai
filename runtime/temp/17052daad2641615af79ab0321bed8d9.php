@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1525247599;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"F:\www\qiantai\public/../application/index\view\index\index.html";i:1525251380;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -217,7 +217,7 @@
 	
 	</div>
 <!-- 页面容器结束 -->
-<div class="xiazhuwanfa" id="xiazhuwanfa"></div>
+<div class="xiazhuwanfa" id="xiazhuwanfa"><div></div></div>
 <!-- 公共页脚开始 -->
 		<div name='footer' class="footer">
 			<p>鱼虾蟹娱乐城</p>
