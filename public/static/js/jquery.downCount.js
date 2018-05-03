@@ -4,24 +4,24 @@
  */
 
 (function ($) {
-
     $.fn.downCount = function (options, callback) {
         var settings = $.extend({
                 date: null,
-                offset: null
+                offset: null,
+                qi:null
             }, options);
 
-        // Throw error if date is not set
+        // 如果日期参数为空则抛出异常
         if (!settings.date) {
             $.error('Date is not defined.');
         }
 
-        // Throw error if date is set incorectly
+        // 如果参数异常则抛出异常
         if (!Date.parse(settings.date)) {
             $.error('Incorrect date format, it should look like this, 12/24/2012 12:00:00.');
         }
 
-        // Save container
+        // 保存当前容器
         var container = this;
 
         /**
@@ -45,13 +45,13 @@
          * Main downCount function that calculates everything
          */
         function countdown () {
-            var target_date = new Date(settings.date), // set target date
-                current_date = currentDate(); // get fixed current date
+            var target_date = new Date(settings.date), //设置到期时间
+                current_date = currentDate(); // 获取当前时间
 
-            // difference of dates
+            // 计算倒计时时间
             var difference = target_date - current_date;
 
-            // if difference is negative than it's pass the target date
+            // 如果倒计时事件为0则结束倒计时并且调用回调方法
             if (difference < 0) {
                 // stop timer
                 clearInterval(interval);
@@ -68,31 +68,61 @@
                 _day = _hour * 24;
 
             // calculate dates
-            var days = Math.floor(difference / _day),
-                hours = Math.floor((difference % _day) / _hour),
-                minutes = Math.floor((difference % _hour) / _minute),
-                seconds = Math.floor((difference % _minute) / _second);
+            var day = Math.floor(difference / _day),
+                hour = Math.floor((difference % _day) / _hour),
+                minute = Math.floor((difference % _hour) / _minute),
+                second = Math.floor((difference % _minute) / _second);
 
                 // fix dates so that it will show two digets
-                days = (String(days).length >= 2) ? days : '0' + days;
-                hours = (String(hours).length >= 2) ? hours : '0' + hours;
-                minutes = (String(minutes).length >= 2) ? minutes : '0' + minutes;
-                seconds = (String(seconds).length >= 2) ? seconds : '0' + seconds;
-
+               var days = (String(day).length >= 2) ? day : '0' + day;
+               var hours = (String(hour).length >= 2) ? hour : '0' + hour;
+               var minutes = (String(minute).length >= 2) ? minute : '0' + minute;
+               var seconds = (String(second).length >= 2) ? second : '0' + second;
+            var qihao = settings.qi;
             // based on the date change the refrence wording
             var ref_days = (days === 1) ? '天' : '天',
                 ref_hours = (hours === 1) ? '时' : '时',
                 ref_minutes = (minutes === 1) ? '分' : '分',
                 ref_seconds = (seconds === 1) ? '秒' : '秒';
-
-            // set to DOM
-            container.find('.days').text(days);
-            container.find('.hours').text(hours);
+            var ms = minute*60+second;
+            var qz = 30;
+            var fd = 90;
+            var cha = 600-ms;
+            if(cha <= 30) {
+                container.prev().html('<p id="kjqihao">第'+qihao+'期<span style="color:red;font-size:22px;" class="touzhuinfo">抢庄</span>中</p>');
+                 if($('#shangzhuang').attr('disabled')) {
+                $('#shangzhuang').prop('disabled',false);
+               }
+                if(cha >= 20) {
+                    layer.tips(30-cha, '.touzhuinfo', {
+                    tips: [3, 'rgba(0,0,0,0.3)'], //还可配置颜色
+                    time:600,
+                });
+                }
+                
+            }else if(cha > 30 && cha <= 510) {
+               container.prev().html('<p id="kjqihao">第'+qihao+'期<span style="color:red;font-size:22px;" class="touzhuinfo">投注</span>中</p>');
+               if(!$('#shangzhuang').attr('disabled')) {
+                $('#shangzhuang').attr('disabled','disabled');
+               }
+               if(cha >= 500) {
+                 layer.tips(510-cha, '.touzhuinfo', {
+                    tips: [3, 'rgba(0,0,0,0.3)'], //还可配置颜色
+                    time:600,   
+                });
+               }          
+            }else if(cha > 510) {
+               container.prev().html('<p id="kjqihao">第'+qihao+'期<span style="color:red;font-size:22px;" class="touzhuinfo">封单</span>中</p>');
+               if(cha >= 590) {
+                    layer.tips(600-cha, '.touzhuinfo', {
+                    tips: [3, 'rgba(0,0,0,0.3)'], //还可配置颜色
+                    time:600,   
+                });
+               }
+            }
+            //写入容器
             container.find('.minutes').text(minutes);
             container.find('.seconds').text(seconds);
-
-            container.find('.days_ref').text(ref_days);
-            container.find('.hours_ref').text(ref_hours);
             container.find('.minutes_ref').text(ref_minutes);
             container.find('.seconds_ref').text(ref_seconds);
         };

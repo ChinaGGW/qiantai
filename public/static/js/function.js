@@ -1,26 +1,60 @@
 // 写入一个投注图案
-function addTouzhu(i) {
+function addTouzhu(i,w) {
 	var a = '<div number="'+i+'"><img src="/static/images/'+i+'.png" alt=""></div>';
+	var z = $('.touzhukuang');
+	var zd = $('.touzhukuang > div');
 	if($('#wanfa').val() == 2) {
-			if($('.touzhukuang > div').length < 2) {
-				if($('.touzhukuang > div').length == 0) {
-				$('.touzhukuang').append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+			// if($('.touzhukuang > div').length < 2) {
+			// 	if($('.touzhukuang > div').length == 0) {
+			// 	$('.touzhukuang').append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+			// }
+			// $('.touzhukuang').append(a);
+			if(w == 'danya') {
+				console.log('现在是2骰单压');
+				if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+				z.append(a);
+			}else if(w == 'erzhonger') {
+				if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+				z.append(a);
+				console.log('现在是2骰二中二');
+			}else if(w == 'duizi') {
+				if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+				z.append(a);
+				console.log('现在是2骰对子');
 			}
-			$('.touzhukuang').append(a);
-	} else {
-		layer.msg('最多下注两个图案');
-	}
 	} else if($('#wanfa').val() == 3) {
-		if($('.touzhukuang > div').length < 3) {
-			if($('.touzhukuang > div').length == 0) {
-				$('.touzhukuang').append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
-			}
-		$('.touzhukuang').append(a);
-	} else {
-		layer.msg('最多下注三个图案');
+		// if($('.touzhukuang > div').length < 3) {
+		// 	if($('.touzhukuang > div').length == 0) {
+		// 		$('.touzhukuang').append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+		// 	}
+		// $('.touzhukuang').append(a);
+		if(w == 'danya') {
+			if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+			z.append(a);
+			console.log('现在是3骰单压');
+		}else if(w == 'erzhonger') {
+			if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+			z.append(a);
+			console.log('现在是3骰二中二');
+		}else if(w == 'baozi') {
+			if(zd.length == 0){
+					z.append('<button class="btn btn-danger" id="qingkong" onClick="dropTouzhu()">清空</button>');
+				}
+			z.append(a);
+			console.log('现在是3骰豹子');
+		}
+	} 
 	}
-	}
-}
 //给图案添加点击效果
 function tuanCurrent($this) {
 	$this.addClass('gameimgcurrent');
@@ -95,4 +129,47 @@ function getTouZhu() {
 	a.each(function(i,v){
 
 	});
+}
+function getQiHao() {//获取当前期号和开奖时间
+	var qihao;
+		$.ajax({
+		          	url:"/getqihao",
+            		type:"get",
+            		dataType:"json",
+            		async:false,
+            		success:function(data){
+            			qihao = $.parseJSON(data);
+            		},
+            		error:function(data){
+                	
+           		}
+        			});
+		return qihao;
+}
+function getYaZhuBtn() {
+	var b = $('#wfbtn > button');
+	var t = '';
+	b.each(function(i,v){
+			if($(v).hasClass('btn-danger')) {
+				t = $(this).attr('id');
+			}
+	});
+	return t;
+}
+function cDate() {
+		var qihao = getQiHao();
+		var kjsj = qihao.kjsj;
+		var myDate = new Date();
+		 //获取当前年
+   		var year = myDate.getFullYear();
+   		//获取当前月
+   		var month = myDate.getMonth() + 1;
+    	//获取当前日
+    	var date = myDate.getDate();
+    	var h = myDate.getHours(); //获取当前小时数(0-23)
+    	var m = myDate.getMinutes(); //获取当前分钟数(0-59)'4/28/2019 11:02:00'
+    	var str = month+'/'+date+'/'+year+' '+kjsj;
+    	var qi = year+'-'+month+'-'+date+'-'+qihao.qihao;
+    	var data = {sj:str,qi:qi};
+    	return data;
 }

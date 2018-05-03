@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"F:\www\qiantai\public/../application/index\view\index\twoMethod.html";i:1525247651;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1524898671;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1524638968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"F:\www\qiantai\public/../application/index\view\index\twoMethod.html";i:1525333806;s:56:"F:\www\qiantai\application\index\view\common\header.html";i:1525328110;s:56:"F:\www\qiantai\application\index\view\common\footer.html";i:1525328106;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +54,7 @@
 			<div name='zhuangjia' class="zhuangjia">
 				<div><img src="/static/images/4.png" alt=""><div><p>我是小老虎</p><p>15万</p></div></div>
 				<div>奖池累计：45,898,994</div>
-				<div><button class="btn btn-primary btn-success btn-lg" id="shangzhuang">我要上庄</button></div>
+				<div><button class="btn btn-primary btn-success btn-lg" id="shangzhuang" disabled="disabled">我要上庄</button></div>
 			</div>
 			<div name='shangqi' class="shangqi">
 				<div name='' class="" id="shangqifont">上期开奖号为：</div>
@@ -188,6 +188,9 @@
 	
 	</div>
 <!-- 页面容器结束 -->
+<div class="xiazhuwanfa" id="xiazhuwanfa"><div><div id="wfbtn" class=""><button id="danya" class="btn btn-danger">单压</button>
+<button class="btn btn-success" id="erzhonger">二中二</button>
+<button class="btn btn-success" id="duizi">对子</button></div><div id="wfcontent" class=""></div></div></div>
 <!-- 公共页脚开始 -->
 		<div name='footer' class="footer">
 			<p>鱼虾蟹娱乐城</p>

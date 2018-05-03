@@ -3,8 +3,7 @@ $(function(){
 	$('.gamecontrol > div ').on('click',function(){
 		//给投注图案添加点击事件
 		tuanCurrent($(this));
-		addTouzhu($(this).attr('number'));
-		
+		addTouzhu($(this).attr('number'),getYaZhuBtn());
 });
 	$('.zaixian').on('mouseover',function(){
 		// 给在线人数框添加滚动类
@@ -115,76 +114,23 @@ $(function(){
             		}
         		});
 	});
-	// $('#baozi').on('click',function(){
-	// 	var wanfa = $('#wanfa').val();
-	// 	layer.open({
- //  		type: 1,
- //  		title: '投注豹子',
- //  		skin: 'layui-layer-rim', //加上边框
- //  		area: ['500px', '500px'], //宽高
- //  		content: '<div name="baocontrol" class="baocontrol"><div number="1"><div class="number">1</div><img src="/static/images/one.png" alt="点击下注"></div><div number="2"><div class="number">2</div><img src="/static/images/two.png" alt="点击下注"></div><div number="3"><div class="number">3</div><img src="/static/images/three.png" alt="点击下注"></div><div number="4"><div class="number">4</div><img src="/static/images/four.png" alt="点击下注"></div><div number="5"><div class="number">5</div><img src="/static/images/five.png" alt="点击下注"></div><div number="6"><div class="number">6</div><img src="/static/images/six.png" alt="点击下注"></div></div><input id="baozimoney" placeholder="请输入下注金额"/><button class="btn btn-danger" id="baozizhu">确定下注</button>'
-	// 	});
-	// 	$('.baocontrol > div').on('click',function(){
-	// 	//给投注图案添加点击事件
-	// 	$(this).addClass('baozicurrent');
-	// 	$(this).siblings().removeClass('baozicurrent');
-	// });
-		// $('#baozizhu').on('click',function(){//豹子投注按钮点击事件
-		// 	var num = $('.baozicurrent > .number').text();//定义当前选中的豹子号
-		// 	if($('#baozimoney').val()){//判断是否输入正确的金额
-		// 		if(num){//判断是否选中了对应图案
-		// 			var money = $('#baozimoney').val();
-		// 			var haoma = '';
-		// 			var userid = 1;
-		// 			var qihao = '2018-06-12';
-		// 			if(wanfa == 2){//判断玩法 复制给号码
-		// 				haoma = num + ',' + num;
-		// 			}else if(wanfa == 3) {
-		// 				haoma = num + ',' + num + ','+num;
-		// 			}
-		// 			$.ajax({
-  //           			url:"/baozixiazhu",
-  //           			data:{'money':money,'userid':userid,'haoma':haoma,'qihao':qihao,'wanfa':wanfa},
-  //           			type:"Post",
-  //           			dataType:"json",
-  //           			success:function(data){
-  //              			layer.msg(data.msg);
-  //           			},
-  //           			error:function(data){
-  //               		$.messager.alert('错误',data.msg);
-  //           		}
-  //       			});
-
-		// 		} else {
-		// 		layer.msg('请先选择下注图案！',{time:900});
-		// 		}
-		// 		} else {
-		// 		layer.msg('下注金额不能为空！',{time:900});
-		// 	}
-	// 	// });
-	// });
 	//计时器逻辑实现
-	$(document).ready(function(){
-			getQiHao();
+$(document).ready(function(){
+			console.log(cDate());
 	});
-
-	function getQiHao() {//获取当前期号和开奖时间
-		$.ajax({
-		          	url:"/getqihao",
-            		type:"get",
-            		dataType:"json",
-            		success:function(data){
-               		layer.msg('获取期号');
-            		},
-            		error:function(data){
-                
-           		}
-        			});
-	}
-	$('.countdown').downCount({
-		date: '4/28/2019 11:02:00',
-		offset:+8
+	$('#wfbtn > button').on('click',function(){
+		if(!$(this).hasClass('btn-danger')) {
+			$(this).removeClass('btn-success');
+			$(this).addClass('btn-danger');
+			$(this).siblings().removeClass('btn-danger');
+			$(this).siblings().addClass('btn-success');
+		}
+	});
+$('.countdown').downCount({
+		date: cDate().sj,
+		offset:+8,
+		qi:cDate().qi
 	},function() {
-		alert('几时结束');
+		window.location.reload();
 	});
 });

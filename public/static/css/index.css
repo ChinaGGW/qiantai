@@ -839,4 +839,21 @@ ul.countdown a:hover {
     width:48%;
     height: 100%;
     margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#wfbtn {
+    border:1px solid black;
+    width: 50%;
+    text-align: center;
+    height: 40%;
+}
+#wfcontent {
+    border:1px solid red;
+    width:51%;
+    text-align: center;
+    height: 55%;
+
 }
